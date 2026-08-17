@@ -7,9 +7,11 @@ const server = http.createServer((req, res) => {
     console.log(new Date().toISOString())
 
     res.statusCode = 201;
-    res.setHeader ('Content-type', 'text/plain; charset=utf-8');
+    res.setHeader ('application/json', 'text/plain; charset=utf-8');
+    return JSON.stringify({ status: "ok" })
 
     res.end("Recurso criado!");
+    // se tirar a linha anterior (res.end) a pagina ficara carregando eternamente.
 
 });
 
